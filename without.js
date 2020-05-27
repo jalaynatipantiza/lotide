@@ -13,9 +13,9 @@ const eqArrays = function(arrayA, arrayB) {
 };
 const assertArraysEqual = function(arrayA, arrayB) {
   if (eqArrays(arrayA, arrayB)) {
-    console.log(`✅✅✅ ${arrayA} === ${arrayB}`);
+    console.log(`✅✅✅ [${arrayA}] === [${arrayB}]`);
   } else {
-    console.log(`❌❌❌ ${arrayA} !== ${arrayB}`);
+    console.log(`❌❌❌ [${arrayA}] !== [${arrayB}]`);
   }
 };
 
@@ -35,7 +35,7 @@ const without = function(source, itemsToRemove) {
   return newArray;
 };
 
-console.log(without([1, 2, 3, 4], [1])); // => [2, 3]
+console.log(without([1, 2, 3], [1])); // => [2, 3]
 console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
 const words = ["hello", "world", "lighthouse"];
 console.log(without(words, ["lighthouse"])); // no need to capture return value for this test case
