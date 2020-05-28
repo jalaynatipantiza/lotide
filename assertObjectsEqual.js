@@ -1,11 +1,4 @@
-//displays wether given value is as expected
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ ${actual} === ${expected}`);
-  } else {
-    console.log(`❌❌❌ ${actual} !== ${expected}`);
-  }
-};
+
 //compares two arrays and makes sure they are a perfect match
 const eqArrays = function(arrayA, arrayB) {
   if (arrayA.length !== arrayB.length) {
@@ -42,21 +35,16 @@ const eqObjects = function(object1, object2) {
 };
 
 
-//testing for primitive types
-console.log("Testing for primitive types:");
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true);
+const assertObjectsEqual = function(actual, expected) {
+  const inspect = require('util').inspect;
+  if (eqObjects(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+  } else {
+    console.log(`❌❌❌Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
+  }
+};
 
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false);
 
+assertObjectsEqual({a: "1", b:"2"}, {b: "2", a:""});
+assertObjectsEqual({a: "1", b:"2"}, {b: "2", a:"1"});
 
-//testing for arrays
-console.log("Testing arrays:");
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "" };
-assertEqual(eqObjects(cd, dc), true);
-
-const cd2 = { c: "1", d: ["", 3] };
-assertEqual(eqObjects(cd, cd2), false);
