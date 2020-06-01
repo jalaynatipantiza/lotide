@@ -1,25 +1,5 @@
 
-//compares two arrays and makes sure they are a perfect match
-const eqArrays = function(arrayA, arrayB) {
-  if (arrayA.length !== arrayB.length) {
-    return false;
-  }
-  for (let i = 0; i < arrayA.length; i++) {
-    if (arrayA[i] !== arrayB[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-//logs two arrays are equal to eachother
-const assertArraysEqual = function(arrayA, arrayB) {
-  if (eqArrays(arrayA, arrayB)) {
-    console.log(`✅✅✅ [${arrayA}] === [${arrayB}]`);
-  } else {
-    console.log(`❌❌❌ [${arrayA}] !== [${arrayB}]`);
-  }
-};
+const assertArraysEqual = require('./assertArraysEqual')
 
 const middle = function(array) {
   let middleNum = [];
@@ -37,8 +17,5 @@ const middle = function(array) {
   return middleNum;
 };
 
+module.exports = middle;
 
-
-assertArraysEqual(middle([1]), []);
-assertArraysEqual(middle([1,2,3,4,5]), [3]);
-assertArraysEqual(middle([1,2,3,4,5,6,7,8]), [4,5]);
